@@ -1,0 +1,85 @@
+.. _AdvancedFeaturesAnchor:
+
+Advanced Features
+=================
+
+.. index:: Services - management
+
+Starting and Stopping Services in Linux for PHP
+-----------------------------------------------
+
+When manually starting and stopping services within a *Linux for PHP* container, one must use the standard init system
+to do so.
+
+To start the PHP FPM server::
+
+    $ /etc/init.d/php-fpm start
+
+To stop the PHP FPM server::
+
+    $ /etc/init.d/php-fpm stop
+
+To get the status of the PHP FPM server::
+
+    $ /etc/init.d/php-fpm status
+
+These commands apply to all the main services that are included within all *Linux for PHP* images :
+
+* Apache :           /etc/init.d/httpd [start/stop/status]
+* MariaDB (MySQL) :  /etc/init.d/mysql [start/stop/status]
+* PostgreSQL :       /etc/init.d/postgresql [start/stop/status]
+* OpenLDAP :         /etc/init.d/slapd [start/stop/status]
+* Exim Mail :        /etc/init.d/exim [start/stop/status]
+
+.. note:: All configuration files can be found within the '/etc' directory.
+
+.. index:: Services - automating services
+
+.. index:: Commands - lfphp
+
+.. _lfphp-services:
+
+Automating Services in Linux for PHP
+------------------------------------
+
+When using a *Linux for PHP* container in detached mode, it is possible to automate services using the 'lfphp' command.
+If you wish to start a container with only the MariaDB (MySQL) server running, you would enter the following command
+when invoking the container::
+
+    $ docker run -dit asclinux/linuxforphp-8.1:7.2.5-nts bash -c "lfphp --mysql"
+
+The available services are :
+
+* Apache ('--apache')
+* Exim Mail ('--exim')
+* OpenLDAP ('--ldap')
+* MariaDB/MySQL ('--mysql')
+* nginx ('--nginx')
+* PostgreSQL ('--pgsql')
+* PHP FPM ('--phpfpm')
+
+.. note:: These optional switches can be combined and that the default behavior of the 'lfphp' command is to start all services when no options are given.
+
+.. note:: It is possible to get up to date help in using this command by entering the command 'lfphp --help' or 'lfphp -h'.
+
+.. index:: Packages - installation
+
+.. index:: Commands - lfphp-get
+
+.. _lfphp-get:
+
+Package Installation Using the 'lfphp-get' Command
+--------------------------------------------------
+
+Any *Linux for PHP* container makes it possible to install optional services from within the container by using the
+'lfphp-get' command. To install an additional service, simply enter the following command on the container's CLI::
+
+    $ lfphp-get [name_of_service_to_install]
+
+To get a complete and up to date list of available services, please use the '--list' option::
+
+    $ lfphp-get --list
+
+.. note:: For now, Linux for PHP does NOT offer an easy way to automate optional services. These must be configured manually by creating and symlinking the appropriate runit scripts ('/services/[name_of_service]' => '/etc/sv/[name_of_service]').
+
+.. note:: It is possible to get up to date help in using this command by entering the command 'lfphp-get --help' or 'lfphp-get -h'.
