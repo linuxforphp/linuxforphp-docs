@@ -1,0 +1,194 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Linux for PHP Cookbook &#8212; Linux for PHP 8.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Advanced Features" href="advanced_features.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="advanced_features.html" title="Advanced Features"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Linux for PHP 8.1.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="linux-for-php-cookbook">
+<span id="cookbookanchor"></span><h1>Linux for PHP Cookbook<a class="headerlink" href="#linux-for-php-cookbook" title="Permalink to this headline">¶</a></h1>
+<p>Here are a few examples of ways that you can use <em>Linux for PHP</em> containers, in order to use them in production
+or to debug/profile a slow PHP script you are working on in development.</p>
+<div class="section" id="cms-installation-using-the-lfphp-get-command">
+<span id="index-0"></span><h2>CMS Installation Using the ‘lfphp-get’ command<a class="headerlink" href="#cms-installation-using-the-lfphp-get-command" title="Permalink to this headline">¶</a></h2>
+<p>To install Concrete5, Drupal, Joomla or WordPress inside a Linux for PHP container, please enter the following command
+on the container’s CLI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lfphp-get cms
+</pre></div>
+</div>
+<p>After asking which CMS is to be installed, the lfphp-get command will set everything up for you. Once it is done,
+you will be able to finish installing Concrete5, Drupal, Joomla or WordPress by using the corresponding CMS’ default
+Web installer.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using clean URLs, you might have to create the appropriate HTACCESS file according to what is needed to run the CMS that you are installing.</p>
+</div>
+</div>
+<div class="section" id="blackfire-io-installation-using-the-lfphp-get-command">
+<span id="index-1"></span><h2>Blackfire.io Installation Using the ‘lfphp-get’ command<a class="headerlink" href="#blackfire-io-installation-using-the-lfphp-get-command" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to install and configure Blackfire.io on <em>Linux for PHP</em>, please run this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lfphp-get blackfire
+</pre></div>
+</div>
+<p>Once done, you will be able to profile your PHP applications by using the Blackfire command line tool we installed previously
+or by installing and using the Blackfire browser plugin in your favorite browser.</p>
+<p>For more information on the ‘lfphp-get’ command, please see <a class="reference internal" href="advanced_features.html#lfphp-get"><span class="std std-ref">Package Installation Using the ‘lfphp-get’ Command</span></a>.</p>
+</div>
+<div class="section" id="node-js-installation-using-the-lfphp-get-command">
+<span id="index-2"></span><h2>Node.js Installation Using the ‘lfphp-get’ command<a class="headerlink" href="#node-js-installation-using-the-lfphp-get-command" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to install and configure Node.js on <em>Linux for PHP</em>, please run this command on the container’s CLI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lfphp-get nodejs
+</pre></div>
+</div>
+<p>Once done, Node.js and the npm tools will be available from within your <em>Linux for PHP</em> container.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is possible to compile Node.js from source by adding the ‘–compile’ option to the ‘lfphp-get’ command.</p>
+</div>
+</div>
+<div class="section" id="mongodb-installation-using-the-lfphp-get-command">
+<span id="index-3"></span><h2>MongoDB Installation Using the ‘lfphp-get’ command<a class="headerlink" href="#mongodb-installation-using-the-lfphp-get-command" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to install and configure MongoDB on <em>Linux for PHP</em>, please run this command on the container’s CLI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lfphp-get mongodb
+</pre></div>
+</div>
+<p>Once done, MongoDB and its import and export tools will be available from within your <em>Linux for PHP</em> container.</p>
+<p>If you wish to use the MongoDB extension for PHP, you can do so by entering the following commands on the container’s CLI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pecl install mongodb
+$ echo &quot;extension=mongodb.so&quot; &gt;&gt; /etc/php.ini
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is possible to compile MongoDB from source by adding the ‘–compile’ option to the ‘lfphp-get’ command.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Also, it is possible to use MongoDB with all of its SSL options by default.</p>
+</div>
+</div>
+<div class="section" id="configuring-php-with-production-settings">
+<span id="index-4"></span><h2>Configuring PHP with Production Settings<a class="headerlink" href="#configuring-php-with-production-settings" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">ATTENTION! This code example does NOT cover security issues and how to harden your server installation!</p>
+</div>
+<p>In order to configure LfPHP with the most common production settings and extensions, please run an LfPHP base image
+with the PHP source code (asclinux/linuxforphp-8.1:src) with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -dit -p 8181:80 asclinux/linuxforphp-8.1:src /bin/bash -c &quot;lfphp-compile 7.2.10 nts&quot;
+</pre></div>
+</div>
+<p>Once done, you will be able to run any PHP script from the CLI or the Web server with the most common production settings.</p>
+<p>For more information on the ‘lfphp-compile’ command, please see <a class="reference internal" href="basic_usage.html#lfphp-compile"><span class="std std-ref">Compiling PHP from source</span></a>.</p>
+<span class="target" id="index-5"></span><span class="target" id="index-6"></span><span class="target" id="index-7"></span></div>
+<div class="section" id="running-multithreaded-php-scripts">
+<span id="index-8"></span><h2>Running Multithreaded PHP Scripts<a class="headerlink" href="#running-multithreaded-php-scripts" title="Permalink to this headline">¶</a></h2>
+<p>In order to run a multithreaded PHP script inside a <em>Linux for PHP</em> container, please enter the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run --rm -it asclinux/linuxforphp-8.1:7.0.29-zts /bin/bash
+</pre></div>
+</div>
+<p>Then, on the container’s CLI, please enter these commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pecl install pthreads
+$ echo &quot;extension=pthreads.so&quot; &gt;&gt; /etc/php.ini
+</pre></div>
+</div>
+<p>After restarting PHP FPM (if necessary), you will be able to run multithreaded PHP scripts on your computer.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Linux for PHP Cookbook</a><ul>
+<li><a class="reference internal" href="#cms-installation-using-the-lfphp-get-command">CMS Installation Using the ‘lfphp-get’ command</a></li>
+<li><a class="reference internal" href="#blackfire-io-installation-using-the-lfphp-get-command">Blackfire.io Installation Using the ‘lfphp-get’ command</a></li>
+<li><a class="reference internal" href="#node-js-installation-using-the-lfphp-get-command">Node.js Installation Using the ‘lfphp-get’ command</a></li>
+<li><a class="reference internal" href="#mongodb-installation-using-the-lfphp-get-command">MongoDB Installation Using the ‘lfphp-get’ command</a></li>
+<li><a class="reference internal" href="#configuring-php-with-production-settings">Configuring PHP with Production Settings</a></li>
+<li><a class="reference internal" href="#running-multithreaded-php-scripts">Running Multithreaded PHP Scripts</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="advanced_features.html"
+                        title="previous chapter">Advanced Features</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/cookbook.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="advanced_features.html" title="Advanced Features"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Linux for PHP 8.1.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Foreach Code Factory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>

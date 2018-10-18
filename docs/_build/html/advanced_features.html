@@ -1,0 +1,190 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Advanced Features &#8212; Linux for PHP 8.1.1 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linux for PHP Cookbook" href="cookbook.html" />
+    <link rel="prev" title="Basic Usage" href="basic_usage.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cookbook.html" title="Linux for PHP Cookbook"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basic_usage.html" title="Basic Usage"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Linux for PHP 8.1.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="advanced-features">
+<span id="advancedfeaturesanchor"></span><h1>Advanced Features<a class="headerlink" href="#advanced-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="starting-and-stopping-services-in-linux-for-php">
+<span id="index-0"></span><h2>Starting and Stopping Services in Linux for PHP<a class="headerlink" href="#starting-and-stopping-services-in-linux-for-php" title="Permalink to this headline">¶</a></h2>
+<p>When manually starting and stopping services within a <em>Linux for PHP</em> container, one must use the standard init system
+to do so.</p>
+<p>To start the PHP FPM server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ /etc/init.d/php-fpm start
+</pre></div>
+</div>
+<p>To stop the PHP FPM server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ /etc/init.d/php-fpm stop
+</pre></div>
+</div>
+<p>To get the status of the PHP FPM server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ /etc/init.d/php-fpm status
+</pre></div>
+</div>
+<p>These commands apply to all the main services that are included within all <em>Linux for PHP</em> images :</p>
+<ul class="simple">
+<li>Apache :           /etc/init.d/httpd [start/stop/status]</li>
+<li>MariaDB (MySQL) :  /etc/init.d/mysql [start/stop/status]</li>
+<li>PostgreSQL :       /etc/init.d/postgresql [start/stop/status]</li>
+<li>OpenLDAP :         /etc/init.d/slapd [start/stop/status]</li>
+<li>Exim Mail :        /etc/init.d/exim [start/stop/status]</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All configuration files can be found within the ‘/etc’ directory.</p>
+</div>
+<span class="target" id="index-1"></span></div>
+<div class="section" id="automating-services-in-linux-for-php">
+<span id="lfphp-services"></span><span id="index-2"></span><h2>Automating Services in Linux for PHP<a class="headerlink" href="#automating-services-in-linux-for-php" title="Permalink to this headline">¶</a></h2>
+<p>When using a <em>Linux for PHP</em> container in detached mode, it is possible to automate services using the ‘lfphp’ command.
+If you wish to start a container with only the MariaDB (MySQL) server running, you would enter the following command
+when invoking the container:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docker run -dit asclinux/linuxforphp-8.1:7.2.5-nts bash -c &quot;lfphp --mysql&quot;
+</pre></div>
+</div>
+<p>The available services are :</p>
+<ul class="simple">
+<li>Apache (‘–apache’)</li>
+<li>Exim Mail (‘–exim’)</li>
+<li>OpenLDAP (‘–ldap’)</li>
+<li>MariaDB/MySQL (‘–mysql’)</li>
+<li>nginx (‘–nginx’)</li>
+<li>PostgreSQL (‘–pgsql’)</li>
+<li>PHP FPM (‘–phpfpm’)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These optional switches can be combined and that the default behavior of the ‘lfphp’ command is to start all services when no options are given.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is possible to get up to date help in using this command by entering the command ‘lfphp –help’ or ‘lfphp -h’.</p>
+</div>
+<span class="target" id="index-3"></span></div>
+<div class="section" id="package-installation-using-the-lfphp-get-command">
+<span id="lfphp-get"></span><span id="index-4"></span><h2>Package Installation Using the ‘lfphp-get’ Command<a class="headerlink" href="#package-installation-using-the-lfphp-get-command" title="Permalink to this headline">¶</a></h2>
+<p>Any <em>Linux for PHP</em> container makes it possible to install optional services from within the container by using the
+‘lfphp-get’ command. To install an additional service, simply enter the following command on the container’s CLI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lfphp-get [name_of_service_to_install]
+</pre></div>
+</div>
+<p>To get a complete and up to date list of available services, please use the ‘–list’ option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ lfphp-get --list
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For now, Linux for PHP does NOT offer an easy way to automate optional services. These must be configured manually by creating and symlinking the appropriate runit scripts (‘/services/[name_of_service]’ =&gt; ‘/etc/sv/[name_of_service]’).</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is possible to get up to date help in using this command by entering the command ‘lfphp-get –help’ or ‘lfphp-get -h’.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Advanced Features</a><ul>
+<li><a class="reference internal" href="#starting-and-stopping-services-in-linux-for-php">Starting and Stopping Services in Linux for PHP</a></li>
+<li><a class="reference internal" href="#automating-services-in-linux-for-php">Automating Services in Linux for PHP</a></li>
+<li><a class="reference internal" href="#package-installation-using-the-lfphp-get-command">Package Installation Using the ‘lfphp-get’ Command</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basic_usage.html"
+                        title="previous chapter">Basic Usage</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cookbook.html"
+                        title="next chapter">Linux for PHP Cookbook</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/advanced_features.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cookbook.html" title="Linux for PHP Cookbook"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basic_usage.html" title="Basic Usage"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Linux for PHP 8.1.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Foreach Code Factory.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+    </div>
+  </body>
+</html>
