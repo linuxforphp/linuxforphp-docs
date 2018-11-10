@@ -11,10 +11,10 @@ Docker's interactive or detached modes.
 Docker's Interactive Mode
 -------------------------
 
-To run a *Linux for PHP* container in interactive mode, with the non thread-safe version of PHP 7.2.5, please
-enter the following command using your system's shell (BASH/PowerShell)::
+To run a *Linux for PHP* container in interactive mode, with the non thread-safe version of PHP 7.2.10, please
+enter the following command using your system's shell (*Bash*/*PowerShell*)::
 
-    $ docker run --rm -it asclinux/linuxforphp-8.1:7.2.5-nts /bin/bash
+    $ docker run --rm -it asclinux/linuxforphp-8.1:7.2.10-nts /bin/bash
 
 You will then get a command-line interface similar to this one :
 
@@ -29,7 +29,7 @@ Once you are done with the container, please quit the container by typing::
 Docker's Detached Mode
 ----------------------
 
-And, what if you wish to run a PHP application from a Web browser and start the Linux for PHP container in
+And, what if you wish to run a PHP application from a Web browser and start the *Linux for PHP* container in
 Docker's detached mode? To do so, enter the following command::
 
     # Change to your project's working directory
@@ -38,10 +38,10 @@ Docker's detached mode? To do so, enter the following command::
     -v ${PWD}/:/srv/www \``
     -p 8181:80 \
     -p 10443:443 \
-    asclinux/linuxforphp-8.1:7.2.5-nts \
+    asclinux/linuxforphp-8.1:7.2.10-nts \
     lfphp
 
-.. note:: This last command uses the "lfphp" script to start all available services inside the container. For more details, please see :ref:`lfphp-services`
+.. note:: This last command uses the ``lfphp`` script to start all available services inside the container. For more details, please see :ref:`lfphp-services`
 
 You should now be able to access any of the PHP scripts contained in your project folder by pointing your browser to `<http://localhost:8181/>`_.
 
@@ -52,7 +52,7 @@ Once you are done with the container, you can stop and remove it as you would an
 
 .. index:: Binaries - pre-compiled PHP
 
-Pre-compiled PHP binaries
+Pre-Compiled PHP Binaries
 -------------------------
 
 As metioned previously, it is possible to run *Linux for PHP* containers that come with pre-compiled binary versions of
@@ -66,22 +66,22 @@ any of the major versions of PHP. To obtain a list of the available binaries, pl
 
 .. _lfphp-compile:
 
-Compiling PHP from source
+Compiling PHP from Source
 -------------------------
 
 Of course, *Linux for PHP* is a lightweight version of Linux with all the software needed to easily compile any recent
 version of PHP. Thus, if you prefer to compile and use a different version of PHP, you can do so by entering the
 following command in a new terminal window. Please make sure to enter the version that you wish to compile, as per the
-following example (7.3.0dev in this case)::
+following example (7.4.0dev in this case)::
 
-    $ docker run -dit -p 8181:80 asclinux/linuxforphp-8.1:src /bin/bash -c "lfphp-compile 7.2.10 nts"
+    $ docker run -dit -p 8181:80 asclinux/linuxforphp-8.1:src /bin/bash -c "lfphp-compile 7.4.0 nts"
 
 After a few minutes, the new PHP binaries will be compiled and ready to be used! You can always check on the
-compilation's progress by connecting to the container using the 'docker exec' command::
+compilation's progress by connecting to the container using the ``docker exec`` command::
 
     $ docker exec -it [id_of_the_container] /bin/bash
 
-On the container's CLI, enter the 'top' command::
+On the container's CLI, enter the ``top`` command::
 
     $ top
 
@@ -89,10 +89,10 @@ To return to the command line, press ``Q``.
 
 .. index:: Binaries - compiling PHP from source manually
 
-Manually compiling PHP from source
+Manually Compiling PHP from Source
 ----------------------------------
 
-Alternatively, you could also decide to do it manually. If so, start by running a Linux for PHP base image containing
+Alternatively, you could also decide to do it manually. If so, start by running a *Linux for PHP* base image containing
 the PHP source files with the following command::
 
     $ docker run --rm -it asclinux/linuxforphp-8.1:src /bin/bash
