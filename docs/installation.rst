@@ -5,12 +5,12 @@ Installation
 
 .. index:: Docker installation
 
-In order to start using *Linux for PHP*, you must install Docker on your computer first.
+In order to start using *Linux for PHP*, you must install *Docker* on your computer first.
 
-General information on the Docker CE engine is available at the following address:
+General information on the *Docker CE* engine is available at the following address:
 `<https://docs.docker.com/install/>`_
 
-For more specific information on how to install Docker CE on your operating system of choice, please
+For more specific information on how to install *Docker CE* on your operating system of choice, please
 see the following pages:
 
 * **Windows 10** :       `<https://docs.docker.com/docker-for-windows/install/>`_

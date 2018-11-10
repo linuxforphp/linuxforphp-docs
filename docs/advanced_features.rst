@@ -8,18 +8,18 @@ Advanced Features
 Starting and Stopping Services in Linux for PHP
 -----------------------------------------------
 
-When manually starting and stopping services within a *Linux for PHP* container, one must use the standard init system
+When manually starting and stopping services within a *Linux for PHP* container, one must use the standard *init* system
 to do so.
 
-To start the PHP FPM server::
+To start the PHP-FPM server::
 
     $ /etc/init.d/php-fpm start
 
-To stop the PHP FPM server::
+To stop the PHP-FPM server::
 
     $ /etc/init.d/php-fpm stop
 
-To get the status of the PHP FPM server::
+To get the status of the PHP-FPM server::
 
     $ /etc/init.d/php-fpm status
 
@@ -31,7 +31,7 @@ These commands apply to all the main services that are included within all *Linu
 * OpenLDAP :         /etc/init.d/slapd [start/stop/status]
 * Exim Mail :        /etc/init.d/exim [start/stop/status]
 
-.. note:: All configuration files can be found within the '/etc' directory.
+.. note:: All configuration files can be found within the ``/etc`` directory.
 
 .. index:: Services - automating services
 
@@ -42,11 +42,11 @@ These commands apply to all the main services that are included within all *Linu
 Automating Services in Linux for PHP
 ------------------------------------
 
-When using a *Linux for PHP* container in detached mode, it is possible to automate services using the 'lfphp' command.
-If you wish to start a container with only the MariaDB (MySQL) server running, you would enter the following command
+When using a *Linux for PHP* container in detached mode, it is possible to automate services using the ``lfphp`` command.
+If you wish to start a container with only the *MariaDB (MySQL)* server running, you would enter the following command
 when invoking the container::
 
-    $ docker run -dit asclinux/linuxforphp-8.1:7.2.5-nts bash -c "lfphp --mysql"
+    $ docker run -dit asclinux/linuxforphp-8.1:7.2.10-nts bash -c "lfphp --mysql"
 
 The available services are :
 
@@ -58,9 +58,9 @@ The available services are :
 * PostgreSQL ('--pgsql')
 * PHP FPM ('--phpfpm')
 
-.. note:: These optional switches can be combined and that the default behavior of the 'lfphp' command is to start all services when no options are given.
+.. note:: These optional switches can be combined and that the default behavior of the ``lfphp`` command is to start all services when no options are given.
 
-.. note:: It is possible to get up to date help in using this command by entering the command 'lfphp --help' or 'lfphp -h'.
+.. note:: It is possible to get up to date help in using this command by entering the command ``lfphp --help`` or ``lfphp -h``.
 
 .. index:: Packages - installation
 
@@ -72,14 +72,14 @@ Package Installation Using the 'lfphp-get' Command
 --------------------------------------------------
 
 Any *Linux for PHP* container makes it possible to install optional services from within the container by using the
-'lfphp-get' command. To install an additional service, simply enter the following command on the container's CLI::
+``lfphp-get`` command. To install an additional service, simply enter the following command on the container's CLI::
 
     $ lfphp-get [name_of_service_to_install]
 
-To get a complete and up to date list of available services, please use the '--list' option::
+To get a complete and up to date list of available services, please use the ``--list`` option::
 
     $ lfphp-get --list
 
-.. note:: For now, Linux for PHP does NOT offer an easy way to automate optional services. These must be configured manually by creating and symlinking the appropriate runit scripts ('/services/[name_of_service]' => '/etc/sv/[name_of_service]').
+.. note:: For now, *Linux for PHP* does NOT offer an easy way to automate optional services. These must be configured manually by creating and symlinking the appropriate runit scripts ('/services/[name_of_service]' => '/etc/sv/[name_of_service]').
 
-.. note:: It is possible to get up to date help in using this command by entering the command 'lfphp-get --help' or 'lfphp-get -h'.
+.. note:: It is possible to get up to date help in using this command by entering the command ``lfphp-get --help`` or ``lfphp-get -h``.

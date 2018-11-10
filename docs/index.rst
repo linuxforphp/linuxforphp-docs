@@ -1,10 +1,10 @@
 .. _IndexAnchor:
 
-Welcome to Linux for PHP's documentation
+Welcome to Linux for PHP's Documentation
 ========================================
-.. image:: /images/lfphp-logo.png
+.. image:: /images/logo.png
 
-`Project Home Page <https://linuxforphp.net/>`_
+`Linux for PHP Home Page <https://linuxforphp.net/>`_
 
 .. toctree::
    :maxdepth: 3
