@@ -46,7 +46,7 @@ When using a *Linux for PHP* container in detached mode, it is possible to autom
 If you wish to start a container with only the *MariaDB (MySQL)* server running, you would enter the following command
 when invoking the container::
 
-    $ docker run -dit asclinux/linuxforphp-8.1:7.2.10-nts bash -c "lfphp --mysql"
+    $ docker run -dit asclinux/linuxforphp-8.1:7.2.12-nts bash -c "lfphp --mysql"
 
 The available services are :
 
@@ -74,7 +74,9 @@ Package Installation Using the 'lfphp-get' Command
 Any *Linux for PHP* container makes it possible to install optional services from within the container by using the
 ``lfphp-get`` command. To install an additional service, simply enter the following command on the container's CLI::
 
-    $ lfphp-get [name_of_service_to_install]
+    $ lfphp-get [options] name_of_service_to_install
+
+.. note:: The ``lfphp-get`` command allows to compile some packages from source, by adding the ``--compile`` option at the end of the command.
 
 To get a complete and up to date list of available services, please use the ``--list`` option::
 
