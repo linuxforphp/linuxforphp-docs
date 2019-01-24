@@ -11,10 +11,10 @@ Docker's interactive or detached modes.
 Docker's Interactive Mode
 -------------------------
 
-To run a *Linux for PHP* container in interactive mode, with the non thread-safe version of PHP 7.2.10, please
+To run a *Linux for PHP* container in interactive mode, with the non thread-safe version of PHP 7.2.12, please
 enter the following command using your system's shell (*Bash*/*PowerShell*)::
 
-    $ docker run --rm -it asclinux/linuxforphp-8.1:7.2.10-nts /bin/bash
+    $ docker run --rm -it asclinux/linuxforphp-8.1:7.2.12-nts /bin/bash
 
 You will then get a command-line interface similar to this one :
 
@@ -38,7 +38,7 @@ Docker's detached mode? To do so, enter the following command::
     -v ${PWD}/:/srv/www \``
     -p 8181:80 \
     -p 10443:443 \
-    asclinux/linuxforphp-8.1:7.2.10-nts \
+    asclinux/linuxforphp-8.1:7.2.12-nts \
     lfphp
 
 .. note:: This last command uses the ``lfphp`` script to start all available services inside the container. For more details, please see :ref:`lfphp-services`

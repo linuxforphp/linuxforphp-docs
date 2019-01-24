@@ -16,11 +16,28 @@ on the container's CLI::
 
     $ lfphp-get cms
 
-After asking which CMS is to be installed, the ``lfphp-get`` command will set everything up for you. Once it is done,
+After asking which CMS is to be installed and what is the project's name, the ``lfphp-get`` command will set everything up for you. Once it is done,
 you will be able to finish installing *Concrete5*, *Drupal*, *Joomla* or *WordPress* by using the corresponding CMS' default
-Web installer.
+Web installer. By default, the CMS will be installed in the ``/srv/tempo`` folder inside the container. If you share this folder
+with the host, you will be able to access the source from outside the container after the end of the CMS' installation.
 
 .. note:: If you are using clean URLs, you might have to create the appropriate HTACCESS file according to what is needed to run the CMS that you are installing.
+
+.. index:: Framework installation
+
+.. index:: PHP framework installation
+
+PHP Framework Installation Using the 'lfphp-get' Command
+--------------------------------------------------------
+
+To install *Zend Framework*, *Zend Expressive*, *Symfony*, *Laravel*, *CakePHP*, *Slim* or *LightMVC* inside a Linux for PHP container, please enter the following command
+on the container's CLI::
+
+    $ lfphp-get php-frameworks
+
+After asking which framework is to be installed and what is the project's name, the ``lfphp-get`` command will set everything up for you.
+
+.. note:: By default, the framework's skeleton application will be installed in the ``/srv/tempo`` folder inside the container. If you share this folder with the host, you will be able to access the source code from outside the container after the end of the framework's installation.
 
 .. index:: Blackfire.io installation
 
