@@ -41,7 +41,7 @@ Docker's detached mode? To do so, enter the following command::
     asclinux/linuxforphp-8.1:7.2.12-nts \
     lfphp
 
-.. note:: This last command uses the ``lfphp`` script to start all available services inside the container. For more details, please see :ref:`lfphp-services`
+.. note:: This last command uses the ``lfphp`` script to start all available services inside the container. For more details, please see :ref:`lfphp-services`.
 
 You should now be able to access any of the PHP scripts contained in your project folder by pointing your browser to `<http://localhost:8181/>`_.
 
@@ -55,7 +55,7 @@ Once you are done with the container, you can stop and remove it as you would an
 Pre-Compiled PHP Binaries
 -------------------------
 
-As metioned previously, it is possible to run *Linux for PHP* containers that come with pre-compiled binary versions of
+As mentioned previously, it is possible to run *Linux for PHP* containers that come with pre-compiled binary versions of
 any of the major versions of PHP. To obtain a list of the available binaries, please visit the project's download page:
 
 `<https://linuxforphp.net/download>`_
