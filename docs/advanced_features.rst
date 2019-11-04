@@ -50,13 +50,13 @@ when invoking the container::
 
 The available services are :
 
-* Apache ('--apache')
-* Exim Mail ('--exim')
-* OpenLDAP ('--ldap')
-* MariaDB/MySQL ('--mysql')
-* nginx ('--nginx')
-* PostgreSQL ('--pgsql')
-* PHP FPM ('--phpfpm')
+* Apache (``--apache``)
+* Exim Mail (``--exim``)
+* OpenLDAP (``--ldap``)
+* MariaDB/MySQL (``--mysql``)
+* nginx (``--nginx``)
+* PostgreSQL (``--pgsql``)
+* PHP FPM (``--phpfpm``)
 
 .. note:: These optional switches can be combined and that the default behavior of the ``lfphp`` command is to start all services when no options are given.
 
@@ -68,8 +68,8 @@ The available services are :
 
 .. _lfphp-get:
 
-Package Installation Using the 'lfphp-get' Command
---------------------------------------------------
+Package Installation Using the ``lfphp-get`` Command
+----------------------------------------------------
 
 Any *Linux for PHP* container makes it possible to install optional services from within the container by using the
 ``lfphp-get`` command. To install an additional service, simply enter the following command on the container's CLI::
@@ -82,6 +82,6 @@ To get a complete and up to date list of available services, please use the ``--
 
     $ lfphp-get --list
 
-.. note:: For now, *Linux for PHP* does NOT offer an easy way to automate optional services. These must be configured manually by creating and symlinking the appropriate runit scripts ('/services/[name_of_service]' => '/etc/sv/[name_of_service]').
+.. note:: For now, *Linux for PHP* does NOT offer an easy way to automate optional services. These must be configured manually by creating and symlinking the appropriate runit scripts (``/services/[name_of_service]`` => ``/etc/sv/[name_of_service]``).
 
 .. note:: It is possible to get up to date help in using this command by entering the command ``lfphp-get --help`` or ``lfphp-get -h``.
