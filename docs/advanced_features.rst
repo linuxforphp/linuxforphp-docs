@@ -26,10 +26,13 @@ To get the status of the PHP-FPM server::
 These commands apply to all the main services that are included within all *Linux for PHP* images :
 
 * Apache :           /etc/init.d/httpd [start/stop/status]
+* nginx :            /etc/init.d/nginx [start/stop/status]
 * MariaDB (MySQL) :  /etc/init.d/mysql [start/stop/status]
 * PostgreSQL :       /etc/init.d/postgresql [start/stop/status]
 * OpenLDAP :         /etc/init.d/slapd [start/stop/status]
 * Exim Mail :        /etc/init.d/exim [start/stop/status]
+* MongoDB :          /etc/init.d/mongod [start/stop/status]
+* OpenSSH :          /etc/init.d/sshd [start/stop/status]
 
 .. note:: All configuration files can be found within the ``/etc`` directory.
 
@@ -46,7 +49,7 @@ When using a *Linux for PHP* container in detached mode, it is possible to autom
 If you wish to start a container with only the *MariaDB (MySQL)* server running, you would enter the following command
 when invoking the container::
 
-    $ docker run -dit asclinux/linuxforphp-8.1:7.2.12-nts bash -c "lfphp --mysql"
+    $ docker run -dit asclinux/linuxforphp-8.2-ultimate:7.4-nts bash -c "lfphp --mysql"
 
 The available services are :
 
