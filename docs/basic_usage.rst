@@ -14,11 +14,15 @@ Docker's Interactive Mode
 To run a *Linux for PHP* container in interactive mode, with the non thread-safe version of PHP 7.2.12, please
 enter the following command using your system's shell (*Bash*/*PowerShell*)::
 
-    $ docker run --rm -it asclinux/linuxforphp-8.1:7.2.12-nts /bin/bash
+    $ docker run --rm -it asclinux/linuxforphp-8.2-ultimate:7.4-nts /bin/bash
 
 You will then get a command-line interface similar to this one :
 
 .. image:: /images/basic_usage01.png
+
+To find out the IP address assigned (assuming you did not set one manually)::
+
+    $ ifconfig
 
 Once you are done with the container, please quit the container by typing::
 
@@ -38,10 +42,10 @@ Docker's detached mode? To do so, enter the following command::
     -v ${PWD}/:/srv/www \``
     -p 8181:80 \
     -p 10443:443 \
-    asclinux/linuxforphp-8.1:7.2.12-nts \
+    asclinux/linuxforphp-8.2-ultimate:7.4-nts \
     lfphp
 
-.. note:: This last command uses the ``lfphp`` script to start all available services inside the container. For more details, please see :ref:`lfphp-services`
+.. note:: This last command uses the ``lfphp`` script to start all available services inside the container. For more details, please see :ref:`lfphp-services`.
 
 You should now be able to access any of the PHP scripts contained in your project folder by pointing your browser to `<http://localhost:8181/>`_.
 
@@ -55,7 +59,7 @@ Once you are done with the container, you can stop and remove it as you would an
 Pre-Compiled PHP Binaries
 -------------------------
 
-As metioned previously, it is possible to run *Linux for PHP* containers that come with pre-compiled binary versions of
+As mentioned previously, it is possible to run *Linux for PHP* containers that come with pre-compiled binary versions of
 any of the major versions of PHP. To obtain a list of the available binaries, please visit the project's download page:
 
 `<https://linuxforphp.net/download>`_
@@ -74,7 +78,7 @@ version of PHP. Thus, if you prefer to compile and use a different version of PH
 following command in a new terminal window. Please make sure to enter the version that you wish to compile, as per the
 following example (7.4.0dev in this case)::
 
-    $ docker run -dit -p 8181:80 asclinux/linuxforphp-8.1:src /bin/bash -c "lfphp-compile 7.4.0 nts"
+    $ docker run -dit -p 8181:80 asclinux/linuxforphp-8.2:src /bin/bash -c "lfphp-compile 7.4.6 nts"
 
 After a few minutes, the new PHP binaries will be compiled and ready to be used! You can always check on the
 compilation's progress by connecting to the container using the ``docker exec`` command::
@@ -95,62 +99,79 @@ Manually Compiling PHP from Source
 Alternatively, you could also decide to do it manually. If so, start by running a *Linux for PHP* base image containing
 the PHP source files with the following command::
 
-    $ docker run --rm -it asclinux/linuxforphp-8.1:src /bin/bash
+    $ docker run -it asclinux/linuxforphp-8.2-ultimate:src /bin/bash
 
 And, on the container's command line interface (CLI), checkout the version of PHP you wish to compile and begin
-compilation by entering the following commands (in our example, we will compile from master)::
+compilation by entering the following commands (in our example, we will compile PHP 7.4.6)::
 
-    $ cd /root/php-src
-    $ git fetch --all --tags
-    $ git pull origin master
+    $ cd /root
+    $ wget https://github.com/php/php-src/archive/PHP-7.4.6.zip
+    $ unzip PHP-7.4.6.zip
+    $ cd php-src-PHP-7.4.6
     $ ./buildconf --force
-    $ ./configure --prefix=/usr \
-    --sysconfdir=/etc \
-    --localstatedir=/var \
-    --datadir=/usr/share/php \
-    --mandir=/usr/share/man \
-    --enable-fpm \
-    --with-fpm-user=apache \
-    --with-fpm-group=apache \
-    --with-config-file-path=/etc \
-    --with-zlib \
-    --enable-bcmath \
-    --with-bz2 \
-    --enable-calendar \
-    --enable-dba=shared \
-    --with-gdbm \
-    --with-gmp \
-    --enable-ftp \
-    --with-gettext=/usr \
-    --enable-mbstring \
-    --with-readline \
-    --with-mysql-sock=/run/mysqld/mysqld.sock \
-    --with-curl \
-    --with-openssl \
-    --with-openssl-dir=/usr \
-    --with-mhash \
-    --enable-intl \
-    --with-sodium=/usr \
-    --with-libxml-dir=/usr \
-    --with-libdir=/lib64 \
-    --enable-sockets \
-    --enable-libxml \
-    --enable-soap \
-    --with-gd \
-    --with-jpeg-dir=/usr \
-    --with-png-dir=/usr \
-    --with-zlib-dir=/usr \
-    --with-freetype-dir=/usr \
-    --enable-exif \
-    --with-xsl \
-    --with-xmlrpc \
-    --with-pgsql \
-    --with-pdo-mysql=/usr \
-    --with-pdo-pgsql \
-    --with-mysqli \
-    --with-ldap \
-    --with-ldap-sasl \
-    --enable-opcache
+    $ ./configure  \
+        --prefix=/usr   \
+        --sysconfdir=/etc   \
+        --localstatedir=/var   \
+        --datadir=/usr/share/php   \
+        --mandir=/usr/share/man \
+        --enable-fpm   \
+        --with-fpm-user=apache   \
+        --with-fpm-group=apache   \
+        --with-config-file-path=/etc   \
+        --with-zlib \
+        --enable-bcmath   \
+        --with-bz2   \
+        --enable-calendar   \
+        --enable-dba=shared   \
+        --with-gdbm   \
+        --with-gmp   \
+        --enable-ftp \
+        --with-gettext=/usr   \
+        --enable-mbstring   \
+        --enable-pcntl   \
+        --with-pspell   \
+        --with-readline   \
+        --with-snmp \
+        --with-mysql-sock=/run/mysqld/mysqld.sock   \
+        --with-curl   \
+        --with-openssl   \
+        --with-openssl-dir=/usr \
+        --with-mhash   \
+        --enable-intl   \
+        --with-libdir=/lib64   \
+        --enable-sockets   \
+        --with-libxml   \
+        --enable-soap \
+        --enable-gd   \
+        --with-jpeg   \
+        --with-freetype   \
+        --enable-exif   \
+        --with-xsl   \
+        --with-xmlrpc   \
+        --with-pgsql \
+        --with-pdo-mysql=/usr   \
+        --with-pdo-pgsql   \
+        --with-mysqli   \
+        --with-pdo-dblib   \
+        --with-ldap   \
+        --with-ldap-sasl \
+        --enable-shmop   \
+        --enable-sysvsem   \
+        --enable-sysvshm   \
+        --enable-sysvmsg   \
+        --with-tidy   \
+        --with-expat   \
+        --with-enchant \
+        --with-imap=/usr/local/imap-2007f   \
+        --with-imap-ssl=/usr/include/openssl   \
+        --with-kerberos=/usr/include/krb5 \
+        --with-sodium=/usr   \
+        --with-zip   \
+        --enable-opcache   \
+        --with-pear   \
+        --with-ffi   \
+        --enable-opcache
     $ make
     $ make test
     $ make install
