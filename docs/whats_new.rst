@@ -3,7 +3,7 @@
 What's New in Version 8.2
 ===========================
 
-New Since Version 8.1.3 (May 17, 2020)
+New Since Version 8.2.0 (May 17, 2020)
 -------------------------------------
 
 * New features:
@@ -13,33 +13,33 @@ New Since Version 8.1.3 (May 17, 2020)
     - _All_ underlying ASCLinux libraries have been updated
 
 * LAMMPPP updates:
-  * Linux (4.15.0-99-generic) - Kernel is NOT installed in this Docker image!
-  * Apache (2.4.29)
-  * MariaDB (10.2.13)
-  * MongoDB (4.0.16)
-  * PHP (5.6.40, 7.0.33, 7.1.33, 7.2.31, 7.3.18, 7.4.6 or 8.0.0-dev)
-  * Perl (5.24.0)
-  * Python (2.7.14, 3.7.4)
+    - Linux (4.15.0-99-generic) - Kernel is NOT installed in this Docker image, only the headers!
+    - Apache (2.4.29)
+    - MariaDB (10.2.13)
+    - MongoDB (4.0.16)
+    - PHP (5.6.40, 7.0.33, 7.1.33, 7.2.31, 7.3.18, 7.4.6 or 8.0.0-dev)
+    - Perl (5.24.0)
+    - Python (2.7.14, 3.7.4)
 
 * Updated OS software/libraries:
-  * Bash (4.3.42)
-  * CMake (3.10.2)
-  * cURL (7.68.0)
-  * Doxygen (1.8.16)
-  * FreeType (22.0.16)
-  * GnuTLS (3.6.2)
-  * icu-io,icu-uc,icu-i18n (60.2)
-  * libcap (2.25)
-  * libgd (3.0.5)
-  * libpipeline (1.4.1)
-  * libtool (2.4.6)
-  * libzip (1.6.1)
-  * meson (0.54.2)
-  * Ninja (1.10.0)
-  * rabbitmq-client (0.10.0)
-  * Redis (6.0.2)
-  * re2c (1.3.0)
-  * Ruby (2.5.0)
+    - Bash (4.3.42)
+    - CMake (3.10.2)
+    - cURL (7.68.0)
+    - Doxygen (1.8.16)
+    - FreeType (22.0.16)
+    - GnuTLS (3.6.2)
+    - icu-io,icu-uc,icu-i18n (60.2)
+    - libcap (2.25)
+    - libgd (3.0.5)
+    - libpipeline (1.4.1)
+    - libtool (2.4.6)
+    - libzip (1.6.1)
+    - meson (0.54.2)
+    - Ninja (1.10.0)
+    - rabbitmq-client (0.10.0)
+    - Redis (6.0.2)
+    - re2c (1.3.0)
+    - Ruby (2.5.0)
 
 * Complete list of installed software/libraries:
     - Acl (2.2.52)
