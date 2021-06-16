@@ -9,12 +9,12 @@ Welcome to Linux for PHP's Documentation
 .. toctree::
    :maxdepth: 3
 
-   license
-   whats_new
    installation
    basic_usage
    advanced_features
    cookbook
+   whats_new
+   license
 
 
 Indices and tables
