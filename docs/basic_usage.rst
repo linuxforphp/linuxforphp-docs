@@ -11,7 +11,7 @@ Docker's interactive or detached modes.
 Docker's Interactive Mode
 -------------------------
 
-To run a *Linux for PHP* container in interactive mode, with the non thread-safe version of PHP 7.2.12, please
+To run a *Linux for PHP* container in interactive mode, with the non thread-safe version of PHP 7.4, please
 enter the following command using your system's shell (*Bash*/*PowerShell*)::
 
     $ docker run --rm -it asclinux/linuxforphp-8.2-ultimate:7.4-nts /bin/bash
@@ -76,9 +76,9 @@ Compiling PHP from Source
 Of course, *Linux for PHP* is a lightweight version of Linux with all the software needed to easily compile any recent
 version of PHP. Thus, if you prefer to compile and use a different version of PHP, you can do so by entering the
 following command in a new terminal window. Please make sure to enter the version that you wish to compile, as per the
-following example (7.4.0dev in this case)::
+following example (8.1.0dev in this case)::
 
-    $ docker run -dit -p 8181:80 asclinux/linuxforphp-8.2:src /bin/bash -c "lfphp-compile 7.4.6 nts"
+    $ docker run -dit -p 8181:80 asclinux/linuxforphp-8.2:src /bin/bash -c "lfphp-compile 8.1.0 nts"
 
 After a few minutes, the new PHP binaries will be compiled and ready to be used! You can always check on the
 compilation's progress by connecting to the container using the ``docker exec`` command::

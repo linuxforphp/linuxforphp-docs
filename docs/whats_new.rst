@@ -4,7 +4,7 @@ What's New in Version 8.2
 ===========================
 
 New Since Version 8.2.0 (May 17, 2020)
--------------------------------------
+--------------------------------------
 
 * New features:
     - PHP has been updated to version 7.4.6

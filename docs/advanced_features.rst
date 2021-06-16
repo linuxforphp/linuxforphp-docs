@@ -79,7 +79,7 @@ Any *Linux for PHP* container makes it possible to install optional services fro
 
     $ lfphp-get [options] name_of_service_to_install
 
-.. note:: The ``lfphp-get`` command allows to compile some packages from source, by adding the ``--compile`` option at the end of the command.
+.. note:: The ``lfphp-get`` command allows to compile some packages from source, by adding the ``--compile`` option to the command.
 
 To get a complete and up to date list of available services, please use the ``--list`` option::
 
