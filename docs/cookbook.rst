@@ -23,6 +23,23 @@ with the host, you will be able to access the source from outside the container 
 
 .. note:: If you are using clean URLs, you might have to create the appropriate .htaccess file according to what is needed to run the CMS that you are installing.
 
+.. index:: Extension installation
+
+.. index:: PHP extension installation
+
+PHP Extension Installation Using the ``lfphp-get`` Command
+----------------------------------------------------------
+
+To install a PHP PECL extension inside a Linux for PHP container, please enter the following command on the container's CLI::
+
+    $ lfphp-get php-ext name_of_extension_to_install
+
+To update a PHP PECL extension, like redis, inside a Linux for PHP container, simply add the ``--force`` option, like so::
+
+    $ lfphp-get --force php-ext redis
+
+The utility will then try to find the appropriate version of the requested extension in the PECL repositories, and proceed to install it.
+
 .. index:: Framework installation
 
 .. index:: PHP framework installation

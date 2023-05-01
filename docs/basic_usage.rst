@@ -76,11 +76,11 @@ Compiling PHP from Source
 Of course, *Linux for PHP* is a lightweight version of Linux with all the software needed to easily compile any recent
 version of PHP. Thus, if you prefer to compile and use a different version of PHP, you can do so by entering the
 following command in a new terminal window. Please make sure to enter the version that you wish to compile, as per the
-following example (8.1.0dev in this case)::
+following example (8.2.5 in this case)::
 
-    $ docker run -dit -p 8181:80 asclinux/linuxforphp-8.2:src /bin/bash -c "lfphp-compile 8.1.0 nts"
+    $ docker run -dit -p 8181:80 asclinux/linuxforphp-8.2-ultimate:src /bin/bash -c "lfphp-get --self-update ; lfphp-compile 8.2.5 nts ; lfphp --phpfpm --apache"
 
-After a few minutes, the new PHP binaries will be compiled and ready to be used! You can always check on the
+After about ten (10) minutes, the new PHP binaries will be compiled and ready to be used! You can always check on the
 compilation's progress by connecting to the container using the ``docker exec`` command::
 
     $ docker exec -it [id_of_the_container] /bin/bash
@@ -89,7 +89,7 @@ On the container's CLI, enter the ``top`` command::
 
     $ top
 
-To return to the command line, press ``Q``.
+To return to the command line, press ``q``.
 
 .. index:: Binaries - compiling PHP from source manually
 
