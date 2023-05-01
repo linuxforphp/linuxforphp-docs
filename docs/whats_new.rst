@@ -3,11 +3,11 @@
 What's New in Version 8.2
 ===========================
 
-New Since Version 8.2.0 (May 17, 2020)
+New Since Version 8.2.0 (May 17, 2020; May 16, 2021; May 1st 2023)
 --------------------------------------
 
 * New features:
-    - PHP has been updated to version 7.4.6
+    - PHP has been updated to version 8.2.5
     - There's a new and updated PHP GD extension for graphics processing
     - MongoDB 4.0 is installed (version 4.4 soon to come!)
     - _All_ underlying ASCLinux libraries have been updated
@@ -17,7 +17,7 @@ New Since Version 8.2.0 (May 17, 2020)
     - Apache (2.4.29)
     - MariaDB (10.2.13)
     - MongoDB (4.0.16)
-    - PHP (5.6.40, 7.0.33, 7.1.33, 7.2.31, 7.3.18, 7.4.6 or 8.0.0-dev)
+    - PHP (5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, or 8.2)
     - Perl (5.24.0)
     - Python (2.7.14, 3.7.4)
 
@@ -157,7 +157,7 @@ New Since Version 8.2.0 (May 17, 2020)
     - Patch (2.7.5)
     - PCRE (8.41)
     - Perl (5.24.0)
-    - PHP (5.6.40, 7.0.33, 7.1.33, 7.2.31, 7.3.18, 7.4.6 or 8.0.0-dev)
+    - PHP (5.6.40, 7.0.33, 7.1.33, 7.2.31, 7.3.18, 7.4.6, 8.0.0, 8.1.18, or 8.2.5)
     - Pkg-config (0.29.1)
     - PostgreSQL (9.6.4)
     - Procps (3.3.12)

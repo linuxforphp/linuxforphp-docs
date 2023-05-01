@@ -13,7 +13,7 @@ General information on the *Docker CE* engine is available at the following addr
 For more specific information on how to install *Docker CE* on your operating system of choice, please
 see the following pages:
 
-* **Windows 10** :       `<https://docs.docker.com/docker-for-windows/install/>`_
+* **Windows 10/11** :       `<https://docs.docker.com/docker-for-windows/install/>`_
 * **Windows 7/8** :      `<https://docs.docker.com/toolbox/overview/>`_
 * **MacOS** :            `<https://docs.docker.com/docker-for-mac/install/>`_
 * **CentOS** :           `<https://docs.docker.com/install/linux/docker-ce/centos/>`_

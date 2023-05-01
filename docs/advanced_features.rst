@@ -63,6 +63,8 @@ The available services are :
 
 .. note:: These optional switches can be combined and that the default behavior of the ``lfphp`` command is to start all services when no options are given.
 
+.. note:: *Linux for PHP* allows you to automate optional services, by creating the appropriate ``runit`` script in the ``/etc/sv/[name_of_service]`` folder, symlinking it to the ``/services/[name_of_service]`` folder, and invoking ``runall`` as the container's main command.
+
 .. note:: It is possible to get up to date help in using this command by entering the command ``lfphp --help`` or ``lfphp -h``.
 
 .. index:: Packages - installation
@@ -85,6 +87,8 @@ To get a complete and up to date list of available services, please use the ``--
 
     $ lfphp-get --list
 
-.. note:: For now, *Linux for PHP* does NOT offer an easy way to automate optional services. These must be configured manually by creating and symlinking the appropriate runit scripts (``/services/[name_of_service]`` => ``/etc/sv/[name_of_service]``).
+To use the latest version of the ``lfphp``, ``lfphp-get``, and ``lfphp-compile`` utilities, please invoke the ``lfphp-get`` command with the ``--self-update`` option::
+
+    $ lfphp-get --self-update
 
 .. note:: It is possible to get up to date help in using this command by entering the command ``lfphp-get --help`` or ``lfphp-get -h``.
